@@ -1,4 +1,33 @@
+---
+runme:
+  id: 01HKEVM7GN7FSC3QG5XK8FJ0D1
+  version: v2.2
+---
+
+```bash {"id":"01HKEVM7GN7FSC3QG5XFWQA82F"}
 kubectl get all
+
+# imperative command examples
+
+kubectl run nginx-pod --image=nginx:alpine
+kubectl run redis --image=redis:alpine --labels=tier=db
+kubectl run custom-nginx --image=nginx --port=8080
+kubectl get redis -o yaml > redis-definition.yaml
+
+kubectl run webapp-green --image=kodekloud/webapp-color -- --color=green
+kubectl run webapp-green --image=kodekloud/webapp-color --command -- --color green
+
+kubectl run httpd --image=httpd:alpine
+kubectl expose po httpd --type=ClusterIP --port=80
+
+kubectl expose po redis --name=redis-service --port=6379 --type=ClusterIP
+
+kubectl create deploy webapp --image=kodekloud/webapp-color --replicas=3
+kubectl create deploy redis-deploy --image=redis --replicas=2 -n=dev-ns
+
+kubectl create ns dev-ns
+
+kubectl create cm custom-cm --from-literal=KEY_1=value_1 --from-literal=KEY_2=value_2
 
 # pods
 
@@ -36,3 +65,11 @@ kubectl rollout history deployment/[deployment-name]
 kubectl rollout undo deployment/[deployment-name]
 kubectl edit deployment [deployment-name]
 kubectl set image deployment [container-name]=[image-name:version] --record
+
+# ConfigMap
+kubectl get cm
+
+# Service Account
+kubectl get sa
+kubectl create token dashboard-sa
+```

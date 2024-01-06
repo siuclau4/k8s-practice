@@ -7,9 +7,30 @@ metadata:
   name: nginx
 spec:
   containers:
-  - image: nginx
-    name: nginx
-    resources: {}
+    - image: nginx
+      name: nginx
+      # command: ["sleep", "5000"] -> docker - ENTRYPOINT
+      # args: ["5000"] -> docker - CMD
+      # ports:
+      #   - containerPort: 8080
+      # envFrom:
+      #   - configMapRef:
+      #       name: custom-config-map
+      # OR
+      # env:
+      #   name: POD_KEY_1
+      #   valueFrom:
+      #     configMapKeyRef:
+      #       name: custom-config-map
+      #       key: KEY_1
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "0.5"
+        limits:
+          memory: "128Mi"
+          cpu: "1"
+  serviceAccount: default
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
