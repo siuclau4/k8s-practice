@@ -72,4 +72,8 @@ kubectl get cm
 # Service Account
 kubectl get sa
 kubectl create token dashboard-sa
+
+# set label for node
+kubectl label node node01 color=blue
+
 ```
