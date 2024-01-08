@@ -30,6 +30,12 @@ spec:
         limits:
           memory: "128Mi"
           cpu: "1"
+      # readinessProbe Ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+      readinessProbe:
+        exec:
+          command:
+          - cat
+          - /tmp/healthy
   serviceAccount: default
   dnsPolicy: ClusterFirst
   restartPolicy: Always
