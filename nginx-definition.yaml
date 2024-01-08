@@ -33,6 +33,11 @@ spec:
   serviceAccount: default
   dnsPolicy: ClusterFirst
   restartPolicy: Always
+  # tolerations Ref: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
+  tolerations:
+  - key: "example-key"
+    operator: "Exists"
+    effect: "NoSchedule"
   # node affiniy Ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
   affinity: 
     nodeAffinity:
