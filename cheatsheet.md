@@ -86,4 +86,7 @@ kubectl create -f deploy/1.8+/
 
 kubectl top node
 kubectl top po -A
+
+# selector
+kubectl get po --selector env=dev,bu=finance
 ```
