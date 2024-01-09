@@ -5,10 +5,13 @@ runme:
 ---
 
 ```bash {"id":"01HKEVM7GN7FSC3QG5XFWQA82F"}
-kubectl get all
+
+# set kubectl alias
+alias k=kubectl
 
 # imperative command examples
-
+kubectl get all
+kubectl get po -A # all namespaces
 kubectl run nginx-pod --image=nginx:alpine
 kubectl run redis --image=redis:alpine --labels=tier=db
 kubectl run custom-nginx --image=nginx --port=8080
@@ -30,7 +33,6 @@ kubectl create ns dev-ns
 kubectl create cm custom-cm --from-literal=KEY_1=value_1 --from-literal=KEY_2=value_2
 
 # pods
-
 kubectl get pods
 kubectl get pods -o wide
 kubectl describe pod [pod-name]
@@ -40,13 +42,11 @@ kubectl apply -f [filename]
 kubectl run [pod-name] --image=[image-name] --dry-run=client -o yaml > [filename]
 
 # replication-controllers
-
 kubectl get replicationcontrollers
 kubectl get replicationcontrollers -o wide
 kubectl describe replicationcontroller [replicationcontroller-name]
 
 # replica-set
-
 kubectl get replicasets
 kubectl get replicasets -o wide
 kubectl describe replicasets [replicasets-name]
@@ -55,7 +55,6 @@ kubectl scale replicas=[replica-num] replicasets nginx
 kubectl scale replicas=[replica-num] rs/nginx
 
 # deployment
-
 kubectl get deployments
 kubectl get deployments -o wide
 kubectl create -f [filename] --record
@@ -76,4 +75,15 @@ kubectl create token dashboard-sa
 # set label for node
 kubectl label node node01 color=blue
 
+# logging and monitoring
+docker logs -f ecf
+kubectl logs -f demo-pod demo-container # stream
+
+minikube addons enable metrics-server
+
+git clone https://github.com/kubernetes-incubator/metrics-server.git
+kubectl create -f deploy/1.8+/
+
+kubectl top node
+kubectl top po -A
 ```
