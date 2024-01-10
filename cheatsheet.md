@@ -56,7 +56,7 @@ kubectl create ns dev-ns
 
 kubectl create cm custom-cm --from-literal=KEY_1=value_1 --from-literal=KEY_2=value_2
 
-kubectl create ingress -n=critical-space ingress-pay --rule="/pay*=pay-service:8282"
+kubectl create ingress -n=critical-space ingress-pay --rule="host/path*=service:8282"
 
 
 # contexts
