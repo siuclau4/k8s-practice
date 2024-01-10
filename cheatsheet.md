@@ -56,6 +56,12 @@ kubectl create ns dev-ns
 
 kubectl create cm custom-cm --from-literal=KEY_1=value_1 --from-literal=KEY_2=value_2
 
+
+# contexts
+kubectl config get-contexts                          # display list of contexts
+kubectl config current-context                       # display the current-context
+kubectl config use-context my-cluster-name           # set the default context to my-cluster-name
+
 # pods
 kubectl get pods
 kubectl get pods -o wide
