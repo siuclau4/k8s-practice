@@ -64,6 +64,10 @@ kubectl config get-contexts                          # display list of contexts
 kubectl config current-context                       # display the current-context
 kubectl config use-context my-cluster-name           # set the default context to my-cluster-name
 
+kubectl config view
+kubectl config use-context demo-context
+kubectl config use-context research --kubeconfig my-kube-config #use my-kube-config file
+
 # pods
 kubectl get pods
 kubectl get pods -o wide
@@ -125,8 +129,4 @@ kubectl top po -A
 # selector
 kubectl get po --selector env=dev,bu=finance
 
-# context
-kubectl config view
-kubectl config use-context demo-context
-kubectl config use-context research --kubeconfig my-kube-config #use my-kube-config file
 ```
