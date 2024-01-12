@@ -36,6 +36,10 @@ spec:
           command:
           - cat
           - /tmp/healthy
+      volumeMounts:
+      - mountPath: /foo
+        name: example-volume
+        readOnly: true # optional
   serviceAccount: default
   dnsPolicy: ClusterFirst
   restartPolicy: Always
@@ -54,4 +58,10 @@ spec:
             operator: In
             values:
             - antarctica-east1
+  volumes:
+  - name: example-volume
+    # mount /data/foo, but only if that directory already exists
+    hostPath:
+      path: /data/foo # directory location on host
+      type: Directory # this field is optional
 status: {}
