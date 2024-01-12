@@ -100,6 +100,9 @@ kubectl set image deployment [container-name]=[image-name:version] --record
 # ConfigMap
 kubectl get cm
 
+# Taint
+kubectl taint nodes node01 [key]=[value]:[effect]
+
 # Service Account
 kubectl get sa
 kubectl create token dashboard-sa
