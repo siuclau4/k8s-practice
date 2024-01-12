@@ -124,4 +124,9 @@ kubectl top po -A
 
 # selector
 kubectl get po --selector env=dev,bu=finance
+
+# context
+kubectl config view
+kubectl config use-context demo-context
+kubectl config use-context research --kubeconfig my-kube-config #use my-kube-config file
 ```
