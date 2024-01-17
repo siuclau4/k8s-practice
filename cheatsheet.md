@@ -58,6 +58,8 @@ kubectl create cm custom-cm --from-literal=KEY_1=value_1 --from-literal=KEY_2=va
 
 kubectl create ingress -n=critical-space ingress-pay --rule="host/path*=service:8282"
 
+kubectl create role develop --verb=create --verb=delete --verb=list --resource=pods
+
 
 # contexts
 kubectl config get-contexts                          # display list of contexts
