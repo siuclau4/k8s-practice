@@ -68,6 +68,12 @@ kubectl config view
 kubectl config use-context demo-context
 kubectl config use-context research --kubeconfig my-kube-config #use my-kube-config file
 
+# authorization
+kubectl describe pod kube-apiserver-controlplane -n kube-system
+kubectl get role -A
+kubectl describe rolebinding kube-proxy -n kube-system
+kubectl auth can-i list pods --as dev-user
+
 # pods
 kubectl get pods
 kubectl get pods -o wide
