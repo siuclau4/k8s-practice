@@ -79,6 +79,9 @@ kubectl get role -A
 kubectl describe rolebinding kube-proxy -n kube-system
 kubectl auth can-i list pods --as dev-user
 
+kubectl api-resources --namespaced=true
+kubectl api-resources --namespaced=false
+
 # pods
 kubectl get pods
 kubectl get pods -o wide
