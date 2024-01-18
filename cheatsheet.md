@@ -59,6 +59,9 @@ kubectl create cm custom-cm --from-literal=KEY_1=value_1 --from-literal=KEY_2=va
 kubectl create ingress -n=critical-space ingress-pay --rule="host/path*=service:8282"
 
 kubectl create role develop --verb=create,delete,list --resource=pods
+kubectl create rolebinding dev-user-binding --role=developer --user=dev-user --namespace=default
+kubectl create clusterrole custom-role --verb=* --resource=nodes
+kubectl create clusterrolebinding custom-rb --clusterrole=custom-role --user=michelle
 
 
 # contexts
