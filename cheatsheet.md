@@ -83,6 +83,7 @@ kubectl api-resources --namespaced=true
 kubectl api-resources --namespaced=false
 
 kubectl exec -n kube-system kube-apiserver-controlplane -- kube-apiserver -h
+vi /etc/kubernetes/manifest/kube-apiserver.yaml
 
 # pods
 kubectl get pods
