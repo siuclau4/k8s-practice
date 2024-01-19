@@ -82,6 +82,8 @@ kubectl auth can-i list pods --as dev-user
 kubectl api-resources --namespaced=true
 kubectl api-resources --namespaced=false
 
+kubectl exec -n kube-system kube-apiserver-controlplane -- kube-apiserver -h
+
 # pods
 kubectl get pods
 kubectl get pods -o wide
