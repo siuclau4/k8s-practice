@@ -88,6 +88,7 @@ vi /etc/kubernetes/manifest/kube-apiserver.yaml
 # pods
 kubectl get pods
 kubectl get pods -o wide
+kubectl get pods --selector=name=app-name
 kubectl describe pod [pod-name]
 kubectl run [pod-name] --image=[image-name]
 kubectl create -f [filename]
