@@ -63,6 +63,8 @@ kubectl create rolebinding dev-user-binding --role=developer --user=dev-user --n
 kubectl create clusterrole custom-role --verb=* --resource=nodes
 kubectl create clusterrolebinding custom-rb --clusterrole=custom-role --user=michelle
 
+kubectl create secret tls tls-secret --cert=path/to/tls.cert --key=path/to/tls.key
+
 
 # contexts
 kubectl config get-contexts                          # display list of contexts
@@ -146,5 +148,19 @@ kubectl top po -A
 
 # selector
 kubectl get po --selector env=dev,bu=finance
+
+# helm
+helm search hub wordpress
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm search repo joomla
+helm repo ls
+
+helm install devserver nginx-stable/nginx-ingress -n team-yellow
+helm install mywebapp ./apache
+helm delete devserver
+helm ls -A
+
+helm pull bitnami/apache --untar # Download the bitnami apache package under . directory.
+helm pull bitnami/apache --untar --untardir /root/test # Download the bitnami apache package under the /root/test directory.
 
 ```
